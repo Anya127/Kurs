@@ -6,7 +6,7 @@ class CreateFilms < ActiveRecord::Migration
       t.text :lasting_f, null: false
       t.text :country_f, null: false
       t.text :companies_f, null: false
-      t.text :min_age, null: false
+      t.integer :min_age, null: false
 
       t.timestamps null: false
     end
