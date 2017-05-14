@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20170514150445) do
   enable_extension "plpgsql"
 
   create_table "actors", force: :cascade do |t|
-    t.text     "l_name"
-    t.text     "f_name"
+    t.text     "l_name",     null: false
+    t.text     "f_name",     null: false
     t.text     "s_name"
-    t.date     "d_birthday"
+    t.date     "d_birthday", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(version: 20170514150445) do
   add_index "addresses", ["film_id"], name: "index_addresses_on_film_id", using: :btree
 
   create_table "cinemas", force: :cascade do |t|
-    t.text     "name_c"
-    t.text     "address_c"
+    t.text     "name_c",     null: false
+    t.text     "address_c",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "cinemas", ["address_c"], name: "index_cinemas_on_address_c", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -59,20 +61,20 @@ ActiveRecord::Schema.define(version: 20170514150445) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "films", force: :cascade do |t|
-    t.text     "name_f"
-    t.text     "genre_f"
-    t.text     "lasting_f"
-    t.text     "country_f"
-    t.text     "companies_f"
-    t.text     "min_age"
+    t.text     "name_f",      null: false
+    t.text     "genre_f",     null: false
+    t.text     "lasting_f",   null: false
+    t.text     "country_f",   null: false
+    t.text     "companies_f", null: false
+    t.integer  "min_age",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "parts", force: :cascade do |t|
-    t.text     "role_a"
-    t.integer  "film_id"
-    t.integer  "actor_id"
+    t.text     "role_a",     null: false
+    t.integer  "film_id",    null: false
+    t.integer  "actor_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
