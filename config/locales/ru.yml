@@ -1,0 +1,86 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      cinema:
+        name_c: Название 
+        address_c: Адрес кинотеатра
+      film:
+        name_f: Название
+        genre_f: Жанр
+        lasting_f: Продолжительность
+        country_f: Страна происхождения
+        companies_f: Кинокомпания
+        min_age: Минимальный разрешенный возраст для просмотра
+        cinema: Кинотеатр
+      actor:
+        l_name: Фамилия
+        f_name: Имя
+        s_name: Отчество
+        d_birthday: Дата рождения
+      part:
+        role_a: Роль или другое 
+        film: Фильм
+        actor: Актер
+      address:
+        
+        film: Фильм
+        cinema: Кинотеатр
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму
+             

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Название:
+  = @film.name_f
+%p
+  %b Жанр:
+  = @film.genre_f
+%p
+  %b Продолжительность:
+  = @film.lasting_f
+%p
+  %b Страна Происхождения:
+  = @film.country_f
+%p
+  %b Киноомпания:
+  = @film.companies_f
+%p
+  %b Минимаьный рвзрешенны для просмотра возраст:
+  = @film.min_age
+
+= link_to 'Редактировать', edit_film_path(@film)
+\|
+= link_to 'Назад', films_path

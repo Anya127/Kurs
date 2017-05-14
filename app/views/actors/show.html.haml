@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Фамилия:
+  = @actor.l_name
+%p
+  %b Имя:
+  = @actor.f_name
+%p
+  %b Отчество:
+  = @actor.s_name
+%p
+  %b Дата рождения:
+  = @actor.d_birthday
+
+= link_to 'Редактировать', edit_actor_path(@actor)
+\|
+= link_to 'Назад', actors_path

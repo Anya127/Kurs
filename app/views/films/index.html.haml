@@ -1,0 +1,31 @@
+%h1 Список фильмов
+
+%table
+  %thead
+    %tr
+      %th Название
+      %th Жанр
+      %th Продолжительность
+      %th Страна происхождения
+      %th Кинокомпании
+      %th Минимальный возраст разрешенный для просмотра
+      %th
+      %th
+      %th
+
+  %tbody
+    - @films.each do |film|
+      %tr
+        %td= film.name_f
+        %td= film.genre_f
+        %td= film.lasting_f
+        %td= film.country_f
+        %td= film.companies_f
+        %td= film.min_age
+        %td= link_to 'Просмотреть', film
+        %td= link_to 'Редактировать', edit_film_path(film)
+        %td= link_to 'Удалить', film, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'Новый фильм', new_film_path
