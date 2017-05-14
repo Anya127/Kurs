@@ -4,5 +4,3 @@
 /tmp
 /public/system
 /nbproject
-Gemfile.lock
-config/database.yml
