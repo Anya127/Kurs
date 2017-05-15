@@ -1,0 +1,27 @@
+.col-md-6
+  %div{class: 'panel panel-'+ (i.kind_of?(Integer) ? 'success' : 'info')}
+    .panel-heading
+      Роль
+      = i
+      %span.toright
+
+        -# Кнопка для удаления связи роль-пользователь. См. role_users_helper
+        -# = link_to_remove_role(fr)
+
+      .clearfix
+    .panel-body
+      .row
+        .col-md-12
+          .form-group
+            = fr.label :role_a
+            = fr.text_field :role_a, class: 'form-control'
+            = fr.error_messages_for(:role_a)
+
+      .row
+        %fieldset
+          %legend.center Поля для человека
+          - if i == 1
+            = new_actor_form(fr)
+          - else
+          = fr.fields_for(:actor) do |ar|
+            = render 'films/one_actor_form', ar: ar

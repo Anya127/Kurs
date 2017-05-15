@@ -16,7 +16,7 @@ ru:
     confirm:
       user: Действительно удалить пользователя?
       role: Действительно удалить роль?
-    new: 
+    new:
       user: Новый пользователь
       role: Новая роль
   headers:
@@ -28,6 +28,8 @@ ru:
       index: Список возможных ролей пользователей
       edit: Редактирование роли
       new: Новая роль
+    films:
+      edit: Редактирование фильма
   views:
     pagination:
       first: ⇤
@@ -54,7 +56,7 @@ ru:
         info: Краткое название
         full_info: Описание
       cinema:
-        name_c: Название 
+        name_c: Название
         address_c: Адрес кинотеатра
       film:
         name_f: Название
@@ -70,11 +72,11 @@ ru:
         s_name: Отчество
         d_birthday: Дата рождения
       part:
-        role_a: Роль или другое 
+        role_a: Роль или другое
         film: Фильм
         actor: Актер
       address:
-        
+
         film: Фильм
         cinema: Кинотеатр
     errors:
@@ -83,4 +85,3 @@ ru:
           attributes:
             snils:
               check_sum: имеет неправильную контрольную сумму
-             

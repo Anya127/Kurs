@@ -3,6 +3,8 @@ class Film < ActiveRecord::Base
   has_many :addresses
 
   before_destroy :destroy_addresses_parts
+  
+  accepts_nested_attributes_for :parts, allow_destroy: true
 
   validates :name_f, presence: true
   validates :genre_f, presence: true

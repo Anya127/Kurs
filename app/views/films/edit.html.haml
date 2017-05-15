@@ -1,7 +1,14 @@
-%h1 Редактирование фильма
+=breadcrumb_tag do
+  %li.active
+    = t('headers.films.edit')
+  %li
+    = link_to(@film.name_f, @film)
+  %li
+    = link_to 'Фильмы', films_path
+  %li
+    Кинотеатры/Фильмы
+
+.page-header
+  %h1= t('headers.films.edit')
 
 = render 'form'
-
-= link_to 'Просмотреть', @film
-\|
-= link_to 'Назад', films_path

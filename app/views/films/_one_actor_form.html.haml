@@ -1,0 +1,24 @@
+= ar.hidden_field(:id)
+.col-md-12
+  .form-group
+    = ar.label :l_name
+    = ar.text_field :l_name, class: 'form-control'
+    = ar.error_messages_for(:l_name)
+.col-md-12
+  .form-group
+    = ar.label :f_name
+    = ar.text_field :f_name, class: 'form-control'
+    = ar.error_messages_for(:f_name)
+.col-md-12
+  .form-group
+    = ar.label :s_name
+    = ar.text_field :s_name, class: 'form-control'
+    = ar.error_messages_for(:s_name)
+.col-md-12
+  .form-group
+    = ar.label :d_birthday
+    .input-group.date.datepicker
+      = ar.text_field :d_birthday, value: lnil(ar.object.d_birthday), class: 'form-control'
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-calendar
+    = ar.error_messages_for(:d_birthday)
