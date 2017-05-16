@@ -1,5 +1,6 @@
 class CinemasController < ApplicationController
   before_action :set_cinema, only: [:show, :edit, :update, :destroy]
+  before_action -> {check_app_auth ["admin", "operator"]}
 
   # GET /cinemas
   # GET /cinemas.json

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :addresses
-  resources :parts
-  resources :actors
   resources :films
   resources :cinemas
   resources :role_users

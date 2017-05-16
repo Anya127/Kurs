@@ -1,6 +1,8 @@
 class FilmsController < ApplicationController
   before_action :set_film, only: [:show, :edit, :update, :destroy]
 
+  before_action -> {check_app_auth ["admin", "operator"]}
+
   # GET /films
   # GET /films.json
   def index
