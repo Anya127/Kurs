@@ -3,6 +3,8 @@ class Cinema < ActiveRecord::Base
 
   before_destroy :destroy_address
 
+  accepts_nested_attributes_for :addresses, allow_destroy: true
+
   validates :name_c, presence: true
   validates :address_c, presence: true
 

@@ -38,8 +38,7 @@
 
   .row.bottom20
     .col-md-12
-      -# Кнопка для добавления связи роль-пользователь. См. role_users_helper
-      -# = link_to_add_role(f, f.object)
+      = link_to_add_part(f)
   - i = 0
   = f.fields_for(:parts) do |fr|
     = fr.hidden_field(:id)

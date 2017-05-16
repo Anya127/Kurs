@@ -29,7 +29,13 @@ ru:
       edit: Редактирование роли
       new: Новая роль
     films:
+      index: Список фильмов
       edit: Редактирование фильма
+      new: Новый фильм
+    cinemas:
+      index: Список кинотеатров
+      edit: Редактирование кинотеатра
+      new: Новый кинотеатр
   views:
     pagination:
       first: ⇤
@@ -66,13 +72,15 @@ ru:
         companies_f: Кинокомпания
         min_age: Минимальный разрешенный возраст для просмотра
         cinema: Кинотеатр
+      cinema/address:
+        film_id: Фильм
       actor:
         l_name: Фамилия
         f_name: Имя
         s_name: Отчество
         d_birthday: Дата рождения
       part:
-        role_a: Роль или другое
+        role_a: Наименование роли
         film: Фильм
         actor: Актер
       address:

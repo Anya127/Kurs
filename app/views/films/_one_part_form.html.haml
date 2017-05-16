@@ -4,9 +4,7 @@
       Роль
       = i
       %span.toright
-
-        -# Кнопка для удаления связи роль-пользователь. См. role_users_helper
-        -# = link_to_remove_role(fr)
+        = link_to_remove_part(fr)
 
       .clearfix
     .panel-body
@@ -18,10 +16,9 @@
             = fr.error_messages_for(:role_a)
 
       .row
-        %fieldset
-          %legend.center Поля для человека
-          - if i == 1
-            = new_actor_form(fr)
-          - else
-          = fr.fields_for(:actor) do |ar|
-            = render 'films/one_actor_form', ar: ar
+        %fieldset.center
+          %legend Поля для человека
+          %button.btn.btn-info.actor-change Cоздать/редактировать
+          %div.left{"data-content": "#{new_actor_form(fr)}"}
+            = fr.fields_for(:actor) do |ar|
+              = render 'films/one_actor_form', ar: ar

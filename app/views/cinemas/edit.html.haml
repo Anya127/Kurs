@@ -1,7 +1,14 @@
-%h1 Редактирование кинотеатра
+=breadcrumb_tag do
+  %li.active
+    = t('headers.cimas.edit')
+  %li
+    = link_to(@cinema.name_c, @cinema)
+  %li
+    = link_to 'Кинотреатры', cinemas_path
+  %li
+    Кинотеатры/Фильмы
+
+.page-header
+  %h1= t('headers.cinemas.edit')
 
 = render 'form'
-
-= link_to 'Просмотреть', @cinema
-\|
-= link_to 'Назад', cinemas_path
