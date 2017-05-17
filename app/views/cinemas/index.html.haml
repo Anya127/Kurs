@@ -1,23 +1,33 @@
-%h1 Список кинотеатров
+=breadcrumb_tag do
+  %li.active
+    Кинотеатры
+  %li
+    Кинотеатры/Фильмы
 
-%table
-  %thead
-    %tr
-      %th Название
-      %th Адрес
-      %th
-      %th
-      %th
+.page-header
+  %h1= t('headers.cinemas.index')
 
-  %tbody
-    - @cinemas.each do |cinema|
-      %tr
-        %td= cinema.name_c
-        %td= cinema.address_c
-        %td= link_to 'Просмотреть', cinema
-        %td= link_to 'Редактировать', edit_cinema_path(cinema)
-        %td= link_to 'Удалить', cinema, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to new_cinema_path, class: 'btn btn-success' do
+  = fa_icon :plus
+  = t('buttons.new.cinema')
 
-%br
-
-= link_to 'Новый кинотеатр', new_cinema_path
+.index_table
+  .row
+    .col-md-4.center= Cinema.human_attribute_name(:name)
+    .col-md-4.center= Cinema.human_attribute_name(:address_c)
+  - @cinemas.each do |cinema|
+    .row
+      .col-md-4.center= cinema.name_c
+      .col-md-4.center= cinema.address_c
+      .col-md-4.center
+        = link_to cinema, class: 'btn btn-warning' do
+          = fa_icon :eye
+          = t('buttons.show')
+        = link_to edit_cinema_path(cinema), class: 'btn btn-info' do
+          = fa_icon :edit
+          = t('buttons.edit')
+        = link_to cinema, :method => :delete,
+        :data => { :confirm => t('buttons.confirm.cinema') },
+        class: 'btn btn-danger' do
+          = fa_icon :times
+          = t('buttons.destroy')
