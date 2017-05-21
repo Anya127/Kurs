@@ -10,6 +10,7 @@ ru:
       submit: Сохранить
       update: Сохранить
   buttons:
+    search: Поиск
     edit: Редактировать
     destroy: Удалить
     show: Показать

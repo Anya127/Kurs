@@ -120,7 +120,7 @@ a
   border-radius: 5px 5px 5px 5px
   padding: 10px 10px 10px 10px
   background-color: rgba(255, 255, 255, 0.9)
-  border-color: $sidebar-right-border-color
+  border-color: $sidebar-left-border-color
   border-style: solid
   border-width: 1px
   .padding5
@@ -270,19 +270,22 @@ $percents: (90 85 80 75 70 65 60 55 50 40 30 20 10 5)
   .small#{$percent}
     font-size: #{$percent+'%'}
     padding: #{round($padding-base-vertical * $percent / 100)} #{round($padding-base-horizontal * $percent / 100)} #{round($padding-base-vertical * $percent / 100)} #{round($padding-base-horizontal * $percent / 100)}
+
 .bottom20
   padding-bottom: 20px
+.bottom10
+  padding-top: 20px
 
-textarea
-  resize: none
-
-.table th
-  text-align: left
-
-.index_table
-  .row
-    margin-top: 0.5em
-    box-shadow: 0 0 1em #aaa
-    padding: 0.5em 0
-    &:first-child
-      font-weight: bold
+@media screen and(max-width: 800px)
+  table thead
+    display: none
+  table tr
+    display: block
+    border-bottom: 3px solid #ddd
+  table td
+    display: block
+    text-align: right
+  table td:before
+    content: attr(data)
+    float: left
+    font-weight: bold

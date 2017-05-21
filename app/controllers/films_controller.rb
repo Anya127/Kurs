@@ -9,6 +9,15 @@ class FilmsController < ApplicationController
     @films = Film.all
   end
 
+  def search
+    if params.has_key?('search')
+      @films = Film.search(params['search'])
+    else
+      @films = []
+    end
+    params['search'] ||= {}
+  end
+
   # GET /films/1
   # GET /films/1.json
   def show

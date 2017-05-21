@@ -1,0 +1,64 @@
+=breadcrumb_tag do
+  %li.active
+    = t('app.films.Поиск')
+  %li
+    = link_to 'Фильмы', films_path
+
+
+.page-header
+
+  %h1= t('headers.films.Поиск')
+
+.container
+  = form_tag(search_films_path(), :method => "get") do
+    .row
+    = link_to films_path, class: 'btn btn-warning' do
+      = t('buttons.Вернуться на страницу фильмов')
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Название:"
+          = text_field_tag 'search[name_f]', params['search']['name_f'], placeholder: "Введите название фильма", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Жанр:"
+          = text_field_tag 'search[genre_f]', params['search']['genre_f'], placeholder: "Введите жанр", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Продолжительность:"
+          = text_field_tag 'search[lasting_f]', params['search']['lasting_f'], placeholder: "Введите продолжительность", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Страна происхождения"
+          = text_field_tag 'search[companies_f]', params['search']['companies_f'], placeholder: "Введите стану происхождения", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Возраст:"
+          = text_field_tag 'search[min_age]', params['search']['min_age'], placeholder: "Введите минимальный возраст разрешенный для просмотра", class: 'form-control'
+    
+
+
+
+
+    = submit_tag(:search_button, value: 'Поиск', class: 'btn btn-default')
+    = link_to search_films_path, class: 'btn btn-warning' do
+      = t('buttons.Очистить')
+    = link_to root_path, class: "btn btn-primary" do
+      = t('buttons.Вернуться на главную страницу')
+
+  %dl.dl-horizontal
+  - @films.each do |film|
+    .row
+      .col-md-9
+        %dt
+          %h3= t('headers.film.Результат поиска')
+        %dd
+    .row
+      =film.name_f.to_s + " / " + film.genre_f.to_s + " / " + film.lasting_f.to_s + " / " + film.country_f.to_s + " / " + film.companies_f.to_s + " / " + film.min_age.to_s + " / "
+      = link_to film, class: 'btn btn-info' do
+        = fa_icon "eye"
+        = t('buttons.show')

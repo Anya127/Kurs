@@ -10,6 +10,9 @@
 = link_to new_film_path, class: 'btn btn-success' do
   = fa_icon :plus
   = t('buttons.new.film')
+= link_to search_films_path, class: 'btn btn-warning' do
+  = fa_icon :search
+  = t('buttons.films.Поиск')
 
 .row
   .col-xs-12
