@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170514150445) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "actors", ["l_name", "f_name", "s_name"], name: "index_actors_on_l_name_and_f_name_and_s_name", unique: true, using: :btree
+
   create_table "addresses", force: :cascade do |t|
     t.integer  "cinema_id"
     t.integer  "film_id"

@@ -4,7 +4,7 @@ class Actor < ActiveRecord::Base
   before_destroy :destroy_parts
 
   validates :l_name, presence: true
-  validates :f_name, presence: true
+  validates :f_name, presence: true, uniqueness: {scope: [:l_name, :s_name]}
   validates :s_name, presence: true
   validates :d_birthday, presence: true
 

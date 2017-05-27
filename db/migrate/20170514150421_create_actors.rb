@@ -6,6 +6,7 @@ class CreateActors < ActiveRecord::Migration
       t.text :s_name
       t.date :d_birthday, null: false
 
+      t.index [:l_name, :f_name, :s_name], unique: true
       t.timestamps null: false
     end
   end

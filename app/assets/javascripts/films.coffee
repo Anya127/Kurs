@@ -1,12 +1,17 @@
-# смена формы редактирования/добавления
 change_form_actor = ->
-  $(".actor-change").click ->
-    elem = $(this).next()
-    data = elem.attr("data-content")
-    elem.attr("data-content", elem.html())
-    elem.html(data)
+  $(".actor-select").change ->
+    # Находим форму, которая находится в .actor-main-fields
+    elem = $(this).parent().parent().parent().next().find(".actor-main-fields")
+    # Если человек текущий, то форма редактирования
+    if ($(this).val() == $(this).attr("data-current-id"))
+      elem.html(elem.attr("data-content-exist"))
+    # Если человек новый, то форма создания
+    else if ($(this).val() == "")
+      elem.html(elem.attr("data-content-new"))
+    # Иначе выбран существующий человек и форму надо скрыть
+    else
+      elem.html("")
     window.datepicker_activation_by_item(elem)
-    false
 
 # Удаление одной роли
 @delete_one_ru_part = (link)->
@@ -39,7 +44,12 @@ change_form_actor = ->
     elem.prev().remove()
 
     panel = $(this).parent().parent().parent().find('.panel-info').first()
+
+    elem = $(this).parent().parent().next().find(".actor-main-fields")
+    elem.html(elem.attr("data-content-new"))
+    change_form_actor()
     window.datepicker_activation_by_item(panel)
+
     # Включаем у новой роли кнопку удаления
     # Её раньше не было, поэтому при зарузке страницы она не включалась
     panel.find('a.remove_part').on 'click', ->
@@ -49,8 +59,8 @@ change_form_actor = ->
 # Запуск всего вышеописанного
 ru_ready_films = ->
   window.add_new_ru_part()
-  change_form_actor()
   window.del_all_rus_part()
+  change_form_actor()
 
 
 $(document).on 'page:load', ru_ready_films # Включаем при ajax обновлении страницы

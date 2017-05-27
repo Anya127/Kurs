@@ -9,16 +9,27 @@
       .clearfix
     .panel-body
       .row
-        .col-md-12
+        .col-md-6
           .form-group
             = fr.label :role_a
             = fr.text_field :role_a, class: 'form-control'
             = fr.error_messages_for(:role_a)
+        .col-md-6
+          .form-group
+            = fr.label :actor_id
+            -# actor_options() в actors_helper
+            -# При выборе текущего актёра, его можно изменять, при выборе нового,
+            -# поля для него скрываются, при выборе пустоты в актёрах -
+            -# можно создать новый.
+            = fr.select :actor_id, actor_options(fr.object.actor_id),
+            {include_blank: true}, class: 'form-control actor-select', "data-current-id": fr.object.actor_id
+            = fr.error_messages_for(:actor_id)
 
       .row
         %fieldset.center
           %legend Поля для человека
-          %button.btn.btn-info.actor-change Cоздать/редактировать
-          %div.left{"data-content": "#{new_actor_form(fr)}"}
+          -# new_actor_form(fr) и exist_actor_form(fr) в actors_helper
+          .left.actor-main-fields{"data-content-new": "#{new_actor_form(fr)}",
+          "data-content-exist": "#{exist_actor_form(fr)}"}
             = fr.fields_for(:actor) do |ar|
               = render 'films/one_actor_form', ar: ar
