@@ -20,12 +20,14 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  port: 5432
 
 development:
   <<: *default
   database: base_app_development
-
+  pool: 5
+  host: localhost
+  user: bak2
+  password: 1234567
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -42,7 +44,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #
+  #port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -59,7 +61,10 @@ development:
 test:
   <<: *default
   database: base_app_test
-
+  pool: 5
+  host: localhost
+  user: bak2
+  password: 1234567
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -84,4 +89,3 @@ production:
   database: base_app_production
   username: base_app
   password: <%= ENV['BASE_APP_DATABASE_PASSWORD'] %>
-

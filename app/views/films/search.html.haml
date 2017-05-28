@@ -89,13 +89,9 @@
       = link_to root_path, class: "btn btn-primary" do
         = t('buttons.Вернуться на главную страницу')
 
+  %h3= t('headers.film.Результат поиска')
   %dl.dl-horizontal
   - @films.each do |film|
-    .row
-      .col-md-9
-        %dt
-          %h3= t('headers.film.Результат поиска')
-        %dd
     .row
       = film.name_f.to_s + " / "
       = film.genre_f.to_s + " / "
